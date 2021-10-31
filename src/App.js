@@ -1,18 +1,22 @@
-import './App.css';
-import React from 'react';
+import "./App.css";
+import React from "react";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
 //import all components
-import Home from './Home';
+import Home from "./Home";
+import ProfileHeader from "./layouts/ProfileHeader";
 
+import rootReducer from "./redux/index";
 
 import {
-  ApolloClient, 
+  ApolloClient,
   createHttpLink,
-  ApolloProvider, 
-  InMemoryCache
-} 
-from '@apollo/client';
-import {setContext} from '@apollo/client/link/context';
+  ApolloProvider,
+  InMemoryCache,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
 //apollo client setup
 const httpLink = createHttpLink({
@@ -35,13 +39,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const store = createStore(
+  rootReducer,
+);
+
+
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <h3>Welcome!</h3>
-        <Home />
-      </div>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile-analytics" component={ProfileHeader} />
+          </Switch>
+        </Router>
+      </Provider>
     </ApolloProvider>
   );
 }
