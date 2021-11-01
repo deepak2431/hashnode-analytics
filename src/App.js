@@ -41,21 +41,21 @@ const client = new ApolloClient({
 
 const store = createStore(
   rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile-analytics" component={ProfileHeader} />
           </Switch>
         </Router>
-      </Provider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </Provider>
   );
 }
 
