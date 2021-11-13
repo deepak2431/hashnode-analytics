@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { Stack, Container } from "@mui/material";
 
@@ -8,6 +9,7 @@ import Profile from "../components/Profile";
 import ProfileStats from "../components/ProfileStats";
 
 const ProfileHeader = () => {
+
   return (
     <div className="profile_header">
       <Navbar />

@@ -5,8 +5,9 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 //import all components
-import Home from "./Home";
+import Home from "./pages/home/Home";
 import ProfileHeader from "./layouts/ProfileHeader";
+import ErrorName from "./pages/error/ErrorName";
 
 import rootReducer from "./redux/index";
 
@@ -52,6 +53,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile-analytics" component={ProfileHeader} />
+            <Route exact path="/user-not-found" component={ErrorName} />
           </Switch>
         </Router>
       </ApolloProvider>

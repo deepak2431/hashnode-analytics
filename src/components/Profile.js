@@ -1,23 +1,40 @@
 import React from "react";
 
 import { Paper, Stack, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
-import FacebookImg from "../assets/fb.jpeg";
+import ErrorName from "../pages/error/ErrorName";
+import { useHistory } from "react-router-dom";
 
 const Profile = () => {
+
+  const history = useHistory();
+
+  const userName = useSelector((state) => state.homereducer.userName);
+  const name = useSelector((state) => state.homereducer.name);
+  const photoUrl = useSelector((state) => state.homereducer.photoUrl);
+
+  if(userName === "") {
+    history.push("/user-not-found")
+  }
+
   return (
     <div className="profile">
       <Paper elevation={0}>
         <Stack direction="row" spacing={2}>
-          <img src={FacebookImg} alt="Facebook" style={{ width: "100px" }} />
+          <img
+            src={photoUrl}
+            alt="Profile"
+            style={{ width: "100px", borderRadius: "50%" }}
+          />
           <Typography variant="h4" style={{ marginTop: "2rem" }}>
-            Facebook
+            {name}
           </Typography>
           <Typography
             variant="h5"
             style={{ marginTop: "2.5rem", color: "gray" }}
           >
-            @facebook
+            @{userName}
           </Typography>
         </Stack>
       </Paper>

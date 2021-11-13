@@ -2,8 +2,12 @@ import React from "react";
 
 //material ui import
 import { Paper, Typography, Stack } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const ProfileStats = () => {
+  const following = useSelector((state) => state.homereducer.numFollowing);
+  const followers = useSelector((state) => state.homereducer.numFollowers);
+
   return (
     <div classname="profile_stats">
       <Paper elevation={0}>
@@ -13,15 +17,15 @@ const ProfileStats = () => {
         <Stack direction="row" spacing={6} style={{ marginTop: "1rem" }}>
           <Stack spacing={0}>
             <Typography variant="h5" style={{ color: "gray" }}>
-              Tweets
+              Following
             </Typography>
-            <Typography variant="h4">40</Typography>
+            <Typography variant="h4">{following}</Typography>
           </Stack>
           <Stack spacing={0}>
             <Typography variant="h5" style={{ color: "gray" }}>
-              Tweets
+              Followers
             </Typography>
-            <Typography variant="h4">40</Typography>
+            <Typography variant="h4">{followers}</Typography>
           </Stack>
           <Stack spacing={0}>
             <Typography variant="h5" style={{ color: "gray" }}>
