@@ -3,20 +3,11 @@ import React from "react";
 import { Paper, Stack, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
-import ErrorName from "../pages/error/ErrorName";
-import { useHistory } from "react-router-dom";
-
 const Profile = () => {
-
-  const history = useHistory();
 
   const userName = useSelector((state) => state.homereducer.userName);
   const name = useSelector((state) => state.homereducer.name);
   const photoUrl = useSelector((state) => state.homereducer.photoUrl);
-
-  if(userName === "") {
-    history.push("/user-not-found")
-  }
 
   return (
     <div className="profile">

@@ -4,6 +4,7 @@ const homeReducerInitialState = {
   photoUrl: "",
   numFollowing: 0,
   numFollowers: 0,
+  numReactions: 0,
 };
 
 export const HomeReducer = (state = homeReducerInitialState, action) => {
@@ -32,6 +33,11 @@ export const HomeReducer = (state = homeReducerInitialState, action) => {
       return {
         ...state,
         numFollowers: action.payload,
+      };
+    case "SET_REACTIONS":
+      return {
+        ...state,
+        numReactions: action.payload
       };
     default:
       return state;

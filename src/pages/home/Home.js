@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 
 //import material ui components
 import {
-  Box,
   Typography,
   TextField,
   Container,
@@ -26,6 +25,7 @@ const GET_USER = gql`
       photo
       numFollowing
       numFollowers
+      numReactions
     }
   }
 `;
@@ -55,11 +55,13 @@ const Home = () => {
       }
       getUserDetails();
       if (data) {
-        console.log(data.user)
+
         dispatch({ type: "SET_NAME", payload: data.user.name });
         dispatch({ type: "SET_PHOTO_URL", payload: data.user.photo });
         dispatch({ type: "SET_FOLLOWING", payload: data.user.numFollowing});
         dispatch({ type: "SET_FOLLOWERS", payload: data.user.numFollowers});
+        dispatch({ type: "SET_REACTIONS", payload: data.user.numReactions});
+
         history.push("/profile-analytics");
       }
     }

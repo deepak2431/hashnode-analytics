@@ -7,9 +7,11 @@ import { useSelector } from "react-redux";
 const ProfileStats = () => {
   const following = useSelector((state) => state.homereducer.numFollowing);
   const followers = useSelector((state) => state.homereducer.numFollowers);
+  const reactions = useSelector((state) => state.homereducer.numReactions);
+
 
   return (
-    <div classname="profile_stats">
+    <div className="profile_stats">
       <Paper elevation={0}>
         <Typography variant="h4" style={{ fontWeight: "bolder" }}>
           Profile Summary
@@ -29,13 +31,13 @@ const ProfileStats = () => {
           </Stack>
           <Stack spacing={0}>
             <Typography variant="h5" style={{ color: "gray" }}>
-              Tweets
+              Appreciation
             </Typography>
-            <Typography variant="h4">40</Typography>
+            <Typography variant="h4">{reactions}</Typography>
           </Stack>
           <Stack spacing={0}>
             <Typography variant="h5" style={{ color: "gray" }}>
-              Tweets
+              Avg. Post Popularity
             </Typography>
             <Typography variant="h4">40</Typography>
           </Stack>

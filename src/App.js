@@ -6,7 +6,7 @@ import { createStore } from "redux";
 
 //import all components
 import Home from "./pages/home/Home";
-import ProfileHeader from "./layouts/ProfileHeader";
+import Analytics from "./pages/analytics/Analytics";
 import ErrorName from "./pages/error/ErrorName";
 
 import rootReducer from "./redux/index";
@@ -52,7 +52,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/profile-analytics" component={ProfileHeader} />
+            <Route exact path="/profile-analytics" component={Analytics} />
             <Route exact path="/user-not-found" component={ErrorName} />
           </Switch>
         </Router>
