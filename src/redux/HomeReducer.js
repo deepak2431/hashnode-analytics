@@ -5,6 +5,7 @@ const homeReducerInitialState = {
   numFollowing: 0,
   numFollowers: 0,
   numReactions: 0,
+  posts: {}
 };
 
 export const HomeReducer = (state = homeReducerInitialState, action) => {
@@ -39,6 +40,11 @@ export const HomeReducer = (state = homeReducerInitialState, action) => {
         ...state,
         numReactions: action.payload
       };
+    case "SET_POSTS":
+      return{
+        ...state,
+        posts: action.payload
+      }
     default:
       return state;
   }
