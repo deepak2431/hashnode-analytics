@@ -156,11 +156,11 @@ const Home = () => {
   const history = useHistory();
   const [userName, setUserName] = useState("");
 
-  const [getUserDetails,{ loading: loading_user, data: user_data, error: user_error },] = useLazyQuery(GET_USER, {
+  const [getUserDetails,{ data: user_data, error: user_error },] = useLazyQuery(GET_USER, {
     variables: { userName },
   });
 
-  const [getUserPosts, { loading: loading_posts, data: post_data, error: post_error },] = useLazyQuery(GET_POSTS, {
+  const [getUserPosts, { data: post_data, error: post_error },] = useLazyQuery(GET_POSTS, {
     variables: { userName },
   });
 
@@ -173,7 +173,7 @@ const Home = () => {
       history.push("/user-not-found");
     } else {
       dispatch({ type: "SET_USER_NAME", payload: userName });
-      if (user_data) {
+      if (user_data && post_data) {
         dispatch({
           type: "SET_NAME",
           payload: user_data.user.name,
@@ -195,14 +195,14 @@ const Home = () => {
           payload: user_data.user.numReactions,
         });
 
-        history.push("/profile-analytics");
-      }
-      if (post_data) {
+        console.log(post_data)
         dispatch({
           type: "SET_POSTS",
           payload: post_data,
         });
-      } 
+
+        history.push("/profile-analytics");
+      }
       else if (user_error || post_error) {
         history.push("/user-not-found");
       }

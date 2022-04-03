@@ -18,25 +18,25 @@ const ProfileStats = () => {
         </Typography>
         <Stack direction="row" spacing={6} style={{ marginTop: "1rem" }}>
           <Stack spacing={0}>
-            <Typography variant="h5" style={{ color: "gray" }}>
+            <Typography variant="h5" style={{ color: "#A8A8A8" }}>
               Following
             </Typography>
             <Typography variant="h4">{following}</Typography>
           </Stack>
           <Stack spacing={0}>
-            <Typography variant="h5" style={{ color: "gray" }}>
+            <Typography variant="h5" style={{ color: "#A8A8A8" }}>
               Followers
             </Typography>
             <Typography variant="h4">{followers}</Typography>
           </Stack>
           <Stack spacing={0}>
-            <Typography variant="h5" style={{ color: "gray" }}>
+            <Typography variant="h5" style={{ color: "#A8A8A8" }}>
               Appreciation
             </Typography>
             <Typography variant="h4">{reactions}</Typography>
           </Stack>
           <Stack spacing={0}>
-            <Typography variant="h5" style={{ color: "gray" }}>
+            <Typography variant="h5" style={{ color: "#A8A8A8" }}>
               Avg. Post Popularity
             </Typography>
             <Typography variant="h4">40</Typography>

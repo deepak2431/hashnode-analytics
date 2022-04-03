@@ -2,9 +2,6 @@ import React from "react";
 
 //import React components
 import SummaryCard from "../components/SummaryCard";
-import { useSelector } from "react-redux";
-
-
 
 const SummarySection = () => {
 
